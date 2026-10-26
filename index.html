@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - Library Management System</title>
+
+```
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #F5ECD3;
+        color: #173E28;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        background-color: #173E28;
+        padding: 15px 0;
+    }
+
+    .navbar-brand {
+        color: #F5ECD3;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .navbar-brand:hover {
+        color: #D7BC7F;
+    }
+
+    .navbar-nav .nav-link {
+        color: #F5ECD3;
+        margin-left: 12px;
+        transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #D7BC7F;
+    }
+
+    .navbar-nav .nav-link.active {
+        font-weight: 600;
+        border-bottom: 2px solid #D7BC7F;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, #F5ECD3, #E9D9B5);
+        padding: 80px 20px;
+    }
+
+    .hero-section h1 {
+        color: #173E28;
+        font-size: 42px;
+    }
+
+    .hero-section p {
+        color: #5F6F61;
+        line-height: 1.8;
+    }
+
+    .hero-icon {
+        font-size: 55px;
+        color: #2C553B;
+        margin-bottom: 15px;
+    }
+
+    /* Buttons */
+    .btn-green {
+        background-color: #2C553B;
+        color: #FFFFFF;
+        border: 1px solid #2C553B;
+        border-radius: 10px;
+        padding: 12px 25px;
+        transition: 0.3s;
+    }
+
+    .btn-green:hover {
+        background-color: #173E28;
+        border-color: #173E28;
+        color: #FFFFFF;
+        transform: translateY(-2px);
+    }
+
+    .btn-outline-green {
+        color: #2C553B;
+        border: 1px solid #2C553B;
+        border-radius: 10px;
+        padding: 12px 25px;
+        transition: 0.3s;
+    }
+
+    .btn-outline-green:hover {
+        background-color: #2C553B;
+        color: #FFFFFF;
+    }
+
+    /* Section Headings */
+    .section-heading {
+        color: #173E28;
+    }
+
+    .section-text {
+        color: #5F6F61;
+        line-height: 1.8;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+        background-color: #FFFAF0;
+        border: none;
+        border-radius: 16px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(23, 62, 40, 0.12) !important;
+    }
+
+    .feature-icon {
+        width: 65px;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        background-color: #F0E3C4;
+        color: #2C553B;
+        font-size: 28px;
+    }
+
+    /* About Section */
+    .about-section {
+        background-color: #F0E3C4;
+    }
+
+    .about-card {
+        background-color: #FFFAF0;
+        border: none;
+        border-radius: 18px;
+    }
+
+    .about-icon {
+        font-size: 65px;
+        color: #2C553B;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        background-color: #FFFAF0;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #173E28;
+        color: #F5ECD3;
+        padding: 18px 10px;
+    }
+
+    footer i {
+        color: #D7BC7F;
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 576px) {
+        .hero-section {
+            padding: 50px 15px;
+        }
+
+        .hero-section h1 {
+            font-size: 30px;
+        }
+
+        .navbar-brand {
+            font-size: 16px;
+            white-space: normal;
+        }
+
+        .section-heading {
+            font-size: 25px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-book-half me-2"></i>Library Management System
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">
+                        <i class="bi bi-house-door me-1"></i>Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="form.html">
+                        <i class="bi bi-ui-checks me-1"></i>Form
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <i class="bi bi-info-circle me-1"></i>About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <i class="bi bi-envelope me-1"></i>Contact Us
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section text-center">
+
+    <div class="container">
+
+        <div class="hero-icon">
+            <i class="bi bi-book-half"></i>
+        </div>
+
+        <p class="fw-semibold mb-2">✧ WELCOME TO OUR LIBRARY ✧</p>
+
+        <h1 class="fw-bold mb-4">Library Management System</h1>
+
+        <p class="lead mx-auto mb-4" style="max-width: 750px;">
+            Discover a simple and organised way to explore library
+            information through our educational web development project.
+        </p>
+
+        <a href="form.html" class="btn btn-green me-2 mb-2">
+            <i class="bi bi-pencil-square me-2"></i>Get Started
+        </a>
+
+        <a href="about.html" class="btn btn-outline-green mb-2">
+            <i class="bi bi-info-circle me-2"></i>Learn More
+        </a>
+
+    </div>
+
+</section>
+
+<!-- Features Section -->
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="section-heading fw-bold">Explore Our Website</h2>
+
+        <p class="section-text">
+            Discover the main features of our Library Management System.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Entry Form -->
+        <div class="col-12 col-md-4">
+
+            <div class="card feature-card shadow-sm h-100">
+
+                <div class="card-body text-center p-4">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-journal-plus"></i>
+                    </div>
+
+                    <h5 class="fw-bold mb-3">Entry Form</h5>
+
+                    <p class="section-text">
+                        Enter your information through our simple form
+                        with built-in validation.
+                    </p>
+
+                    <a href="form.html" class="btn btn-outline-green mt-2">
+                        Open Form <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- About Us -->
+        <div class="col-12 col-md-4">
+
+            <div class="card feature-card shadow-sm h-100">
+
+                <div class="card-body text-center p-4">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-book"></i>
+                    </div>
+
+                    <h5 class="fw-bold mb-3">About Our Project</h5>
+
+                    <p class="section-text">
+                        Learn about our project, its objectives,
+                        technologies and purpose.
+                    </p>
+
+                    <a href="about.html" class="btn btn-outline-green mt-2">
+                        Learn More <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Contact Us -->
+        <div class="col-12 col-md-4">
+
+            <div class="card feature-card shadow-sm h-100">
+
+                <div class="card-body text-center p-4">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-envelope-paper"></i>
+                    </div>
+
+                    <h5 class="fw-bold mb-3">Contact Us</h5>
+
+                    <p class="section-text">
+                        Have a question or suggestion? Visit our
+                        contact page to get in touch.
+                    </p>
+
+                    <a href="contact.html" class="btn btn-outline-green mt-2">
+                        Contact Us <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- About Section -->
+<section class="about-section py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-6">
+
+                <h2 class="section-heading fw-bold mb-3">
+                    About Our Project
+                </h2>
+
+                <p class="section-text">
+                    The Library Management System is an educational
+                    web development project created to demonstrate
+                    the fundamentals of modern website development.
+                </p>
+
+                <p class="section-text mb-4">
+                    Using HTML, Bootstrap and JavaScript, the website
+                    demonstrates page structure, responsive design,
+                    navigation and form validation.
+                </p>
+
+                <a href="about.html" class="btn btn-green">
+                    Discover Our Project
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="card about-card shadow-sm p-4 p-md-5 text-center">
+
+                    <div class="about-icon mb-3">
+                        <i class="bi bi-book-half"></i>
+                    </div>
+
+                    <h3 class="section-heading fw-bold mb-3">
+                        Our Vision
+                    </h3>
+
+                    <p class="section-text mb-0">
+                        To explore web development concepts and create
+                        a simple, accessible and user-friendly web
+                        application.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section text-center py-5">
+
+    <div class="container">
+
+        <div class="feature-icon">
+            <i class="bi bi-chat-dots"></i>
+        </div>
+
+        <h2 class="section-heading fw-bold mb-3">
+            We'd Love to Hear From You
+        </h2>
+
+        <p class="section-text mb-4">
+            Have any questions or suggestions? Feel free to contact us.
+        </p>
+
+        <a href="contact.html" class="btn btn-green">
+            <i class="bi bi-envelope me-2"></i>Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+
+    <p class="mb-0">
+        Developed by Rukaiya Ramzan - B7 | 2026    </p>
+
+</footer>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us - Library Management System</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+    html {
+        min-height: 100%;
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Poppins', sans-serif;
+        background-color: #F5ECD3;
+        color: #173E28;
+    }
+
+    main {
+        flex: 1;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        background-color: #173E28;
+        padding: 15px 0;
+    }
+
+    .navbar-brand {
+        color: #F5ECD3;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .navbar-brand:hover {
+        color: #D7BC7F;
+    }
+
+    .navbar-nav .nav-link {
+        color: #F5ECD3;
+        margin-left: 12px;
+        transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #D7BC7F;
+    }
+
+    .navbar-nav .nav-link.active {
+        font-weight: 600;
+        border-bottom: 2px solid #D7BC7F;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, #F5ECD3, #E9D9B5);
+        padding: 65px 20px;
+    }
+
+    .hero-icon {
+        width: 80px;
+        height: 80px;
+        background-color: #D7BC7F;
+        color: #173E28;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 35px;
+        margin: 0 auto 20px;
+    }
+
+    .hero-section h1 {
+        color: #173E28;
+    }
+
+    .hero-label {
+        color: #2C553B;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    /* General Sections */
+    .section-heading {
+        color: #173E28;
+    }
+
+    .section-text {
+        color: #5F6F61;
+        line-height: 1.8;
+    }
+
+    /* Information Cards */
+    .info-card {
+        background-color: #FFFAF0;
+        border: none;
+        border-radius: 16px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(23, 62, 40, 0.12) !important;
+    }
+
+    .info-icon {
+        width: 65px;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        background-color: #F0E3C4;
+        color: #2C553B;
+        font-size: 28px;
+    }
+
+    .info-card h5,
+    .vision-card h3 {
+        color: #173E28;
+    }
+
+    /* Vision Card */
+    .vision-card {
+        background-color: #FFFAF0;
+        border: none;
+        border-radius: 18px;
+    }
+
+    .vision-icon {
+        font-size: 65px;
+        color: #2C553B;
+    }
+
+    /* Technology Cards */
+    .technology-card {
+        background-color: #FFFAF0;
+        border-radius: 12px;
+        padding: 22px 12px;
+        text-align: center;
+        height: 100%;
+        transition: transform 0.3s;
+    }
+
+    .technology-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .technology-icon {
+        color: #2C553B;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .technology-card h5 {
+        color: #173E28;
+    }
+
+    /* Project Information */
+    .project-card {
+        background-color: #FFFAF0;
+        border: none;
+        border-radius: 18px;
+    }
+
+    .project-detail {
+        background-color: #F5ECD3;
+        padding: 15px;
+        border-radius: 10px;
+        height: 100%;
+    }
+
+    .project-detail strong {
+        color: #173E28;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        background-color: #FFFAF0;
+    }
+
+    .btn-green {
+        background-color: #2C553B;
+        color: #FFFFFF;
+        border: 1px solid #2C553B;
+        border-radius: 10px;
+        padding: 12px 25px;
+        transition: 0.3s;
+    }
+
+    .btn-green:hover {
+        background-color: #173E28;
+        border-color: #173E28;
+        color: #FFFFFF;
+        transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+        background-color: #173E28;
+        color: #F5ECD3;
+        padding: 18px 10px;
+    }
+
+    footer i {
+        color: #D7BC7F;
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 576px) {
+        .hero-section {
+            padding: 40px 15px;
+        }
+
+        .hero-section h1 {
+            font-size: 2rem;
+        }
+
+        .section-heading {
+            font-size: 1.6rem;
+        }
+
+        .navbar-brand {
+            font-size: 16px;
+            white-space: normal;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-book-half me-2"></i>Library Management System
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-house-door me-1"></i>Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="form.html">
+                        <i class="bi bi-ui-checks me-1"></i>Form
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="about.html">
+                        <i class="bi bi-info-circle me-1"></i>About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <i class="bi bi-envelope me-1"></i>Contact Us
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+
+        <div class="container">
+
+            <div class="hero-icon">
+                <i class="bi bi-book"></i>
+            </div>
+
+            <p class="hero-label mb-2">GET TO KNOW US</p>
+
+            <h1 class="fw-bold mb-3">About Our Project</h1>
+
+            <p class="lead section-text mx-auto mb-0" style="max-width: 750px;">
+                Discover our Library Management System, an educational
+                web application designed to demonstrate the fundamentals
+                of modern web development.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Project Description -->
+    <section class="container py-5">
+
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-6">
+
+                <h2 class="section-heading fw-bold mb-3">
+                    Who We Are
+                </h2>
+
+                <p class="section-text">
+                    The Library Management System is a web development
+                    project created to demonstrate how a website can
+                    present information through a simple and organised
+                    interface.
+                </p>
+
+                <p class="section-text mb-0">
+                    This project includes a homepage, an entry form,
+                    an About page and a Contact page. It uses HTML,
+                    Bootstrap and JavaScript to demonstrate website
+                    structure, responsive design and form validation.
+                </p>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="card vision-card shadow-sm p-4 p-md-5 text-center h-100">
+
+                    <div class="vision-icon mb-3">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+
+                    <h3 class="fw-bold mb-3">Our Vision</h3>
+
+                    <p class="section-text mb-0">
+                        To explore web development concepts and create
+                        a simple, accessible and user-friendly web
+                        application.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Objectives Section -->
+    <section class="py-5" style="background-color: #F0E3C4;">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="section-heading fw-bold">Our Objectives</h2>
+
+                <p class="section-text">
+                    The main goals of this project.
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <!-- Organisation -->
+                <div class="col-12 col-md-4">
+
+                    <div class="card info-card shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <div class="info-icon">
+                                <i class="bi bi-list-check"></i>
+                            </div>
+
+                            <h5 class="fw-bold mb-3">Organisation</h5>
+
+                            <p class="section-text mb-0">
+                                Demonstrate how library-related
+                                information can be presented
+                                in an organised way.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Efficiency -->
+                <div class="col-12 col-md-4">
+
+                    <div class="card info-card shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <div class="info-icon">
+                                <i class="bi bi-lightning-charge"></i>
+                            </div>
+
+                            <h5 class="fw-bold mb-3">Efficiency</h5>
+
+                            <p class="section-text mb-0">
+                                Explore how web applications can
+                                make everyday tasks simpler
+                                and more convenient.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- User Experience -->
+                <div class="col-12 col-md-4">
+
+                    <div class="card info-card shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <div class="info-icon">
+                                <i class="bi bi-display"></i>
+                            </div>
+
+                            <h5 class="fw-bold mb-3">User Experience</h5>
+
+                            <p class="section-text mb-0">
+                                Build a responsive interface
+                                that is easy to navigate
+                                on different screen sizes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="container py-5">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-heading fw-bold">Technologies Used</h2>
+
+            <p class="section-text">
+                Tools and technologies used to develop this project.
+            </p>
+
+        </div>
+
+        <div class="row g-3">
+
+            <!-- HTML -->
+            <div class="col-6 col-md-4">
+
+                <div class="technology-card shadow-sm">
+
+                    <div class="technology-icon">
+                        <i class="bi bi-filetype-html"></i>
+                    </div>
+
+                    <h5 class="fw-bold">HTML</h5>
+
+                    <p class="section-text mb-0">Page Structure</p>
+
+                </div>
+
+            </div>
+
+            <!-- Bootstrap -->
+            <div class="col-6 col-md-4">
+
+                <div class="technology-card shadow-sm">
+
+                    <div class="technology-icon">
+                        <i class="bi bi-bootstrap"></i>
+                    </div>
+
+                    <h5 class="fw-bold">Bootstrap</h5>
+
+                    <p class="section-text mb-0">Responsive Design</p>
+
+                </div>
+
+            </div>
+
+            <!-- JavaScript -->
+            <div class="col-6 col-md-4">
+
+                <div class="technology-card shadow-sm">
+
+                    <div class="technology-icon">
+                        <i class="bi bi-filetype-js"></i>
+                    </div>
+
+                    <h5 class="fw-bold">JavaScript</h5>
+
+                    <p class="section-text mb-0">Form Validation</p>
+
+                </div>
+
+            </div>
+
+            <!-- XAMPP -->
+            <div class="col-6 col-md-6">
+
+                <div class="technology-card shadow-sm">
+
+                    <div class="technology-icon">
+                        <i class="bi bi-hdd-network"></i>
+                    </div>
+
+                    <h5 class="fw-bold">XAMPP</h5>
+
+                    <p class="section-text mb-0">Local Development</p>
+
+                </div>
+
+            </div>
+
+            <!-- GitHub -->
+            <div class="col-12 col-md-6">
+
+                <div class="technology-card shadow-sm">
+
+                    <div class="technology-icon">
+                        <i class="bi bi-github"></i>
+                    </div>
+
+                    <h5 class="fw-bold">GitHub</h5>
+
+                    <p class="section-text mb-0">
+                        Version Control and Code Hosting
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Project Information -->
+    <section class="container pb-5">
+
+        <div class="card project-card shadow-sm p-4 p-md-5">
+
+            <div class="text-center mb-4">
+
+                <div class="info-icon">
+                    <i class="bi bi-folder2-open"></i>
+                </div>
+
+                <h2 class="section-heading fw-bold">Project Information</h2>
+
+            </div>
+
+            <div class="row g-3">
+
+                <div class="col-12 col-md-6">
+
+                    <div class="project-detail">
+                        <p class="mb-0">
+                            <strong>
+                                <i class="bi bi-bookmark me-2"></i>Project Name:
+                            </strong>
+                            <br>
+                            Library Management System
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-md-6">
+
+                    <div class="project-detail">
+                        <p class="mb-0">
+                            <strong>
+                                <i class="bi bi-person me-2"></i>Developed By:
+                            </strong>
+                            <br>
+                            Rukaiya Ramzan - B7
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-md-6">
+
+                    <div class="project-detail">
+                        <p class="mb-0">
+                            <strong>
+                                <i class="bi bi-window me-2"></i>Project Type:
+                            </strong>
+                            <br>
+                            Web Application
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-md-6">
+
+                    <div class="project-detail">
+                        <p class="mb-0">
+                            <strong>
+                                <i class="bi bi-mortarboard me-2"></i>Purpose:
+                            </strong>
+                            <br>
+                            Educational Project
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section text-center py-5">
+
+        <div class="container">
+
+            <div class="info-icon">
+                <i class="bi bi-chat-dots"></i>
+            </div>
+
+            <h2 class="section-heading fw-bold mb-3">
+                Want to Know More?
+            </h2>
+
+            <p class="section-text mb-4">
+                Visit our Contact Us page to send us your questions
+                or suggestions.
+            </p>
+
+            <a href="contact.html" class="btn btn-green">
+                <i class="bi bi-envelope me-2"></i>Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="text-center">
+
+    <p class="mb-0">
+        Developed by Rukaiya Ramzan - B7 | 2026    </p>
+
+</footer>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
