@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Add Entry - Library Management System</title>
 
-```
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -164,13 +163,11 @@
         color: #D7BC7F;
     }
 </style>
-```
 
 </head>
 
 <body>
 
-```
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
@@ -257,7 +254,7 @@
                         Please complete all the fields below.
                     </p>
 
-                    <form id="entryForm" onsubmit="return validateForm()">
+                    <form id="entryForm" method="post" action="form.php" onsubmit="return validateForm()">
 
                         <!-- Full Name -->
                         <div class="mb-4">
@@ -269,6 +266,7 @@
                             <input
                                 type="text"
                                 id="name"
+                                name="name"
                                 class="form-control"
                                 placeholder="Enter your full name"
                                 required
@@ -286,6 +284,7 @@
                             <input
                                 type="email"
                                 id="email"
+                                name="email"
                                 class="form-control"
                                 placeholder="example@email.com"
                                 required
@@ -303,6 +302,7 @@
                             <input
                                 type="tel"
                                 id="phone"
+                                name="phone"
                                 class="form-control"
                                 placeholder="Enter your 10-digit phone number"
                                 maxlength="10"
@@ -335,11 +335,6 @@
                 </div>
 
             </div>
-
-            <p class="text-center text-secondary small mt-3">
-                <i class="bi bi-info-circle me-1"></i>
-                Note: This is a demonstration form for the project.
-            </p>
 
         </div>
 
@@ -381,10 +376,9 @@
 
         alert("Form submitted successfully!");
 
-        return false;
+        return true;
     }
 </script>
-```
 
 </body>
 
