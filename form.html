@@ -208,6 +208,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="admin_login.php">
+                        <i class="bi bi-person-lock me-1"></i>Admin Login
+                    </a>
+                </li>
+
             </ul>
         </div>
 
@@ -254,7 +260,7 @@
                         Please complete all the fields below.
                     </p>
 
-                    <form id="entryForm" method="post" action="form.php" onsubmit="return validateForm()">
+                    <form id="entryForm">
 
                         <!-- Full Name -->
                         <div class="mb-4">
@@ -269,6 +275,7 @@
                                 name="name"
                                 class="form-control"
                                 placeholder="Enter your full name"
+                                oninput="this.value = this.value.toUpperCase()"
                                 required
                             >
 
@@ -307,6 +314,7 @@
                                 placeholder="Enter your 10-digit phone number"
                                 maxlength="10"
                                 inputmode="numeric"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                                 required
                             >
 
@@ -332,6 +340,8 @@
 
                     </form>
 
+                    <div id="formMessage" class="mt-3" role="status" aria-live="polite"></div>
+
                 </div>
 
             </div>
@@ -353,33 +363,101 @@
 
 <!-- JavaScript Validation -->
 <script>
-    function validateForm() {
+    const entryForm = document.getElementById("entryForm");
+    const formMessage = document.getElementById("formMessage");
+    const submitButton = entryForm.querySelector('button[type="submit"]');
 
-        let name = document.getElementById("name").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let phone = document.getElementById("phone").value.trim();
+    entryForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
 
-        if (name === "" || email === "" || phone === "") {
-            alert("All fields are required!");
-            return false;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+
+        formMessage.className = "mt-3";
+        formMessage.textContent = "";
+
+        if (!name || !email || !phone) {
+            showMessage("All fields are required!", "danger");
+            return;
         }
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            alert("Please enter a valid email address!");
-            return false;
+            showMessage("Please enter a valid email address!", "danger");
+            return;
         }
 
         if (!/^\d{10}$/.test(phone)) {
-            alert("Phone number must contain exactly 10 digits!");
-            return false;
+            showMessage(
+                "Phone number must contain exactly 10 digits!",
+                "danger"
+            );
+            return;
         }
 
-        alert("Form submitted successfully!");
+        submitButton.disabled = true;
+        submitButton.innerHTML =
+            '<span class="spinner-border spinner-border-sm me-2"></span>Submitting...';
 
-        return true;
-    }
+        try {
+            const response = await fetch("form.php", {
+                method: "POST",
+                body: new FormData(entryForm)
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || "Unable to save the entry.");
+            }
+
+            alert("Entry submitted successfully!");
+            entryForm.reset();
+
+        } catch (error) {
+            showMessage(
+                error.message || "Something went wrong. Please try again.",
+                "danger"
+            );
+        } finally {
+            submitButton.disabled = false;
+            submitButton.innerHTML =
+                '<i class="bi bi-check-circle me-2"></i>Submit Entry';
+        }
+    });
+
+    function showMessage(message, type) {
+    formMessage.className = "alert alert-" + type + " mt-3";
+    formMessage.textContent = message;
+
+    formMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+
+nameInput.addEventListener("input", function () {
+    this.style.borderColor =
+        this.value.trim().length >= 3 ? "green" : "red";
+});
+
+emailInput.addEventListener("input", function () {
+    this.style.borderColor =
+        this.validity.valid && this.value.trim() !== ""
+            ? "green"
+            : "red";
+});
+
+phoneInput.addEventListener("input", function () {
+    this.style.borderColor =
+        /^\d{10}$/.test(this.value) ? "green" : "red";
+});
+
 </script>
-
 </body>
-
 </html>
+

@@ -1,0 +1,9 @@
+# Private administrator credentials
+admin_config.php
+
+# Local database credentials
+config.php
+
+# Temporary and backup files
+generate_hash.php
+view_backup.php
